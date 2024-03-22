@@ -33,6 +33,53 @@
 | 306168 | 412 broccoli casserole               |               9 |            5 |      194.8 | False    |
 | 306168 | 412 broccoli casserole               |               9 |            5 |      194.8 | False    |
 
+
+### Univariate Analysis
+
+<p>In the univariate analysis, we have plotted a distribution of the number of calories per recipe.</p>
+
+<iframe
+  src="assets/calories-dist.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<p> From the plot it seems like the distribution of the number of calories across health and diet v/s non-health and diet recipes is quite similar. This suggests that it would not be suitable for us to classify health and diet recipes based on a calorie cut-off. The plot also indicates that most recipes in our dataset have roughly between 100 and 400 calories.</p>
+
+### Bivariate Analysis
+
+<p>In the bivariate analysis section, we have plotted a box-plot for the number steps and its distribution across health and diet recipes and a sctterplot for to examine the distribution of minutes against calories.</p>
+
+<iframe
+  src="assets/steps.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<p>From the plot above, it is evident that the number of steps on average for health and diet recipes is slightly lesser than non-health and diet recipes. The plot hints at a direction to our question, which is that health and diet recipes are less complicated than its counterpart.</p>
+
+<iframe
+  src="assets/calorie-min.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<p>The motivation behind the plot above was to observe if recipes that take longer to prepare are more calorie intensive. It is evident that this is infact, not the case. The number of calories in every recipe seems to be distributed almost uniformly along the range of the cooking time. There is no correlation between these two features.</p>
+
+### Interesting Aggregates 
+
+|   rating_cate |   False |    True |
+|--------------:|--------:|--------:|
+|             0 | 522.541 | 493.995 |
+|             1 | 459.956 | 518.001 |
+|             2 | 498.091 | 455.559 |
+|             3 | 489.967 | 482.287 |
+|             4 | 408.075 | 370.187 |
+|             5 | 437.032 | 392.845 |
+
 ## Assessment of Missingness
 
 ## Hypothesis Testing
