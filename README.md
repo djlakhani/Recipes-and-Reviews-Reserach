@@ -67,7 +67,7 @@
   frameborder="0"
 ></iframe>
 
-<p>The motivation behind the plot above was to observe if recipes that take longer to prepare are more calorie intensive. We have only considered It is evident that this is infact, not the case. The number of calories in every recipe seems to be distributed almost uniformly along the range of the cooking time. There is no correlation between these two features.</p>
+<p>The motivation behind the plot above was to observe if recipes that take longer to prepare are more calorie intensive. We have only considered recipes under three hours since minutes has extreme outliers. It is evident that this is infact, not the case. The number of calories in every recipe seems to be distributed almost uniformly along the range of the cooking time. There is no correlation between these two features.</p>
 
 ### Interesting Aggregates 
 
