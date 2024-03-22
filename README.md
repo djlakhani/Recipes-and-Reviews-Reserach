@@ -5,7 +5,7 @@
 
 ## Introduction
 
-<p>In a health-conscious, fast-paced world, the new workforce is constantly searching for meal options that are quick, but at the same time healthy. There has been a rise in food content creators that actively share these ready-to-go health-friendly recipes and companies that simplify meal-preparating are growing in popularity. Essentially, the trend we observe is that health and diet recipes are designed to be uncomplicated and quick. This directs us to the <b>goal of the this project, which is to examine if health and diet focused recipes are more convenient to prepare.</b></p>
+<p>In a health-conscious, fast-paced world, the new workforce is constantly searching for meal options that are quick, but at the same time healthy. From the rise of food content creators that share these ready-to-go health-friendly recipes to the growing popularity of meal preparation companies, the promotion of simplified, healthy eating is widespread. The trend we observe is that health and diet recipes are designed to be uncomplicated and quick. This directs us to the <b>goal of the this project, which is to examine if health and diet focused recipes are more convenient to prepare.</b></p>
 <p>To address the question above, the project will work with two datasets. The datasets have been created by scraping information about recipes and reviews from <a href="https://www.food.com/">food.com</a>.</p>
 <p>The first dataset called recipes contains information on recipes that were posted by users to food.com. The recipes dataset contains 83782 observations or recipes and 12 columns. The main columns that are relevant to our analysis include the time taken to prepare each recipe (minutes), the number of ingredients (n_ingredients), the number of calories, total_fat and other nutrition statistics (nutrition), and the (tags) column which has a list of short tags associated with each recipe. For instance, tags can include 'healthy', 'low-cholestrol', etc. which are a great tool to deduce which recipes are health and diet based recipes.</p>
 <p>The second dataset is called ratings and contains information about reviews given to recipes on food.com. One recipe can have multiple reviews. The dataset contains 731927 observations or reviews and 5 columns. The main columns relevant to our analysis is the (ratings) column which is the rating given by a user to the recipe measured on a scale from 1 to 5 and the (recipe_id) column which will be useful while merging the datasets together.</p>
@@ -36,7 +36,7 @@
 
 ### Univariate Analysis
 
-<p>In the univariate analysis, we have plotted a distribution of the number of calories per recipe.</p>
+<p>In the univariate analysis section, we have plotted a distribution of the number of calories per recipe.</p>
 
 <iframe
   src="assets/calories-dist.html"
@@ -49,7 +49,7 @@
 
 ### Bivariate Analysis
 
-<p>In the bivariate analysis section, we have plotted a box-plot for the number steps and its distribution across health and diet recipes and a sctterplot for to examine the distribution of minutes against calories.</p>
+<p>In the bivariate analysis section, we have plotted a box-plot for the number steps and its distribution across health and diet recipes and a scatterplot for to examine the distribution of minutes against calories.</p>
 
 <iframe
   src="assets/steps.html"
@@ -67,11 +67,11 @@
   frameborder="0"
 ></iframe>
 
-<p>The motivation behind the plot above was to observe if recipes that take longer to prepare are more calorie intensive. We have only considered recipes under three hours since minutes has extreme outliers. It is evident that this is infact, not the case. The number of calories in every recipe seems to be distributed almost uniformly along the range of the cooking time. There is no correlation between these two features.</p>
+<p>The motivation behind the plot above was to observe if recipes that take longer to prepare are more calorie intensive. We have only considered recipes under three hours since the minutes column has extreme outliers. It is evident that this is infact, not the case. The number of calories in every recipe seems to be distributed almost uniformly along the range of the cooking time. There is no correlation between these two features.</p>
 
 ### Interesting Aggregates 
 
-<p>As a part of the interesting aggregates section we have created a pivot_table as shown below. The index of the pivot_table is the category of the rating. The category is determined by the first digit of the rating is on the scale 0 to 5. The columns indicate a health and diet recipe v/s a non-health and diet recipe. The values are the average calories.</p>
+<p>As a part of the interesting aggregates section we have created a pivot_table as shown below. The index of the pivot_table is the category of the rating. The category is determined by the first digit of the avg_rating is on the scale 0 to 5. The columns indicate a health and diet recipe v/s a non-health and diet recipe. The values are the average calories.</p>
 
 |   rating_cate |   False |    True |
 |--------------:|--------:|--------:|
@@ -82,7 +82,7 @@
 |             4 | 408.075 | 370.187 |
 |             5 | 437.032 | 392.845 |
 
-<p>The reason we chose to create this pivot table was to analyze if the average number of calories across the average ratings of the recipes would differ. It is quite interesting to notice that the calories averages decrease as the ratings increase, suggesting that people enjoy low-calorie recipes or that low-calorie recipes have better results when created. Another interesting fact is that although we might connect low calorie with being healthy, it is clear that the average of the calories is not consistently lower for the health and diet recipes. This connects to univariate analysis scatter plot.</p>
+<p>The reason we chose to create this pivot table was to analyze if the average number of calories across the average ratings of the recipes would differ. It is quite interesting to notice that the calorie averages decrease as the ratings increase, suggesting that people enjoy low-calorie recipes or that low-calorie recipes have better results when created. Another interesting fact is that although we might connect low calorie with being healthy, it is clear that the average calories is not consistently lower for the health and diet recipes. This connects to univariate analysis scatter plot.</p>
 
 ## Assessment of Missingness
 
@@ -97,8 +97,9 @@
 <p>Null Hypothesis: The missingness of rating does not depend on the number of ingredients.</p>
 <p>Alternative Hypothesis: The missingness of rating does depend on the number of ingredients.</p>
 <p>Test Statistic: Absolute differnce in group means.</p>
+<p>Significance Level: We will evaluate the test at a 5% significance level.</p>
 
-<p>To conduct the permutation test we created a column called has_rating which indicates whether a rating is missing or not. This column was shuffles every iteration to compute the test statistic of the absolute difference in the average number of ingredients of rating v/s rating missing columns. The observed statistic was rougly 0.16. The following distribution of test statistics was obtained:</p>
+<p>To conduct the permutation test we created a column called has_rating which indicates whether a rating is missing or not. This column was shuffled every iteration to compute the test statistic of the absolute difference in the average number of ingredients of rating v/s rating missing entries. The observed statistic was rougly 0.16. The following distribution of test statistics was obtained:</p>
 
 <iframe
   src="assets/perm-test.html"
@@ -116,6 +117,7 @@
 <p>Null Hypothesis: The missingness of rating does not depend on the minutes.</p>
 <p>Alternative Hypothesis: The missingness of rating does depend on the minutes.</p>
 <p>Test Statistic: Absolute differnce in group means.</p>
+<p>Significance Level: We will evaluate the test at a 5% significance level.</p>
 
 <p>To conduct the permutation test we created a column called has_rating which indicates whether a rating is missing or not. The observed statistic was rougly 51.45. The following distribution of test statistics was obtained:</p>
 
@@ -132,20 +134,21 @@
 
 <p>We answer the question proposed in the introduction: Are health and diet recipes more convenient to make? Given our data, this question translates to asking if recipes with the tag 'low-something' take lesser number of steps to make compared to recipes that do not contain a 'low-something' tag? We will conduct a permutation test for this analysis.</p>
 
-<p>To reiterate what has been mentioned before, a health and diet recipe is one that contatins a 'low-something' tag. The various low-something tags in our dataset across all our recipes with their counts are listed below.</p>
-| index           |   tags |
-|:----------------|-------:|
-| low-in          |  88247 |
-| low-carb        |  44903 |
-| low-sodium      |  41317 |
-| low-cholesterol |  38836 |
-| low-calorie     |  38473 |
-| low-protein     |  33914 |
-| low-saturated   |  32576 |
-| low-fat         |  22071 |
-| low-carbs       |  10135 |
-| low-cooker      |   7958 |
-| low-beans       |   1402 |
+<p>To reiterate what has been mentioned before, a health and diet recipe is one that contatins a 'low-something' tag. The various low-something tags in our dataset across all our recipes are listed below.</p>
+
+<ol>
+<li>low-in</li>
+<li>low-carb</li>
+<li>low-sodium</li>
+<li>low-cholesterol</li>
+<li>low-calorie</li>
+<li>low-protein</li>
+<li>low-saturated</li>
+<li>low-fat</li>
+<li>low-carbs</li>
+<li>low-cooker</li>
+<li>low-beans</li>
+</ol>
 
 <p>Null Hypothesis: Health and diet recipes take the same number of steps as non-health and diet recipes.</p>
 <p>Alternative Hypothesis: Health and diet recipes take less number of steps to make than non-health and diet recipes.</p>
@@ -154,7 +157,7 @@
 
 <p>The reason we have chosen difference in group means is because our alternative hypothesis has a direction to it, that is health and diet recipes take lesser steps to make. We have chosen to conduct a permutation test since we are analyzing two samples, health and diet and non-health and diet recipes, and if they come from the same population, this implies that health and diet recipes take the same number of steps to makes.</p>
 
-<p>The observed test statistic is the average number of steps for a health recipe - average number of steps for a non-health recipe. The statistic observed is roughly -1.38. We shuffle the column 'is_low' which indicates which recipes are health recipes every iteration. The following distribution of test statistics was observed. The line indicates the observed statistic:</p>
+<p>The observed test statistic is the average number of steps for a health recipe - average number of steps for a non-health recipe. The statistic observed is roughly -1.38. We shuffle the column 'is_low', which indicates which recipes are health recipes, every iteration. The following distribution of test statistics was observed. The line indicates the observed statistic:</p>
 
 <iframe
   src="assets/hypo-test.html"
@@ -187,16 +190,16 @@
 <li>low + sugar + total + carbs + pro + sodium + satfat: The final combination of hyperparameters invovles all except the number of ingredients. We perform the same transformations as the baseline model.</li>
 </ol>
 
-<p>The final model we settled with was a multi-feature linear regression model. The best combination of hyperparatmeters obtained was low + sugar + total + carbs + pro and we determined this through a manual iterative form of k-fold cross-validation. We took k to be 5 and trained each hyperparameter combination five times while comparing against a new validation set each time. We observed a significant improvement from the model's baseline performance. The RMSE of the training and the test reduced to roughly 37 and 39 respectively. We analyzing the coefficients of our model and the various validation statistics, it is evident that the protein feature was the key to improving model performance. In addition, the R2 score for the training and the test set increased by roughly 2%.</p>
+<p>The final model we settled with was a multi-feature linear regression model. The best combination of hyperparatmeters obtained was low + sugar + total + carbs + pro and we determined this through a manual iterative form of k-fold cross-validation. We took k to be 5 and trained each hyperparameter combination five times while comparing against a new validation set each time. We observed a significant improvement from the model's baseline performance. The RMSE of the training and the test reduced to roughly 37 and 39 respectively. We analyzing the coefficients of our model and the various validation statistics, it is evident that the protein feature was the key to improving model performance. In addition, the R2 score for the training and the test set remained the same.</p>
 
 ## Fairness Analysis
 
-<p>To conduct the fairness analysis, we decided on two quite intriguing groups. The two groups we have considered are groups with a high rating and ang groups with a non-high rating. We define a group as one with a high rating if it have a rating above 4. We conduct a permutation test to analyze if our model performs better on groups with a lower rating. The evaluation metric will be the RMSE.</p>
+<p>To conduct the fairness analysis, we decided on two quite intriguing groups. The two groups we have considered are groups with a high rating and groups with a non-high rating. We define a group as one with a high rating if it have a rating above 4. We conduct a permutation test to analyze if our model performs better on groups with a lower rating. The evaluation metric will be the RMSE.</p>
 
 <p>Null Hypothesis: The model has the same performance on lower rating and high rating groups.</p>
 <p>Alternative Hypothesis: The model performs better on lower rating groups.</p>
 <p>Test Statistic: Difference in RMSE of the the each of the groups.</p>
 <p>Significance Level: We will evaluate the test at a 5% significance level.</p>
 
-<p>The p-value obtained was roughly 0.3 suggesting that we fail to reject the null hypothesis at 0.05 significance level. What this suggests that we do not have enough evidence to conclude that our model performs differently on higher rated v/s lower rated groups.</p>
+<p>The p-value obtained was roughly 0.3 suggesting that we fail to reject the null hypothesis at 0.05 significance level. What this suggests is that we do not have enough evidence to conclude that our model performs differently on higher rated v/s lower rated groups.</p>
 
