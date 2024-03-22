@@ -23,6 +23,15 @@
 <li><strong>Extracting details from the nutrition column:</strong> Since the nutrition content of every recipe is also crucial to classifying health and diet recepies we will extract information from the list provided in the nutrition column. The nutrition column is list formatted as [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]. We create new sub-columns 'calories', 'total_fat', 'saturated_fat', 'sodium', 'sugar', 'protein', and 'carbohydrates' corresponding to each of these values. In addition, the type of each these columns is float.</li>
 </ol>
 
+<p>The final dataset is stored in a variable called cleaned and will be utilized throughout the rest of our analysis. The first five rows along with some relevant columns of our dataset are illustrated below:</p>
+
+|     id | name                                 |   n_ingredients |   avg_rating |   calories | is_low   |
+|-------:|:-------------------------------------|----------------:|-------------:|-----------:|:---------|
+| 333281 | 1 brownies in the world    best ever |               9 |            4 |      138.4 | False    |
+| 453467 | 1 in canada chocolate chip cookies   |              11 |            5 |      595.1 | False    |
+| 306168 | 412 broccoli casserole               |               9 |            5 |      194.8 | False    |
+| 306168 | 412 broccoli casserole               |               9 |            5 |      194.8 | False    |
+| 306168 | 412 broccoli casserole               |               9 |            5 |      194.8 | False    |
 
 ## Assessment of Missingness
 
